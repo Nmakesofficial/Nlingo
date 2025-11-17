@@ -73,6 +73,17 @@ const App: React.FC = () => {
     return roadmap.findIndex(lesson => lesson.title === activeLesson.title);
   }, [activeLesson, roadmap]);
 
+  const isNextLessonAccessible = useMemo(() => {
+    if (!roadmap || activeLessonIndex < 0 || activeLessonIndex >= roadmap.length - 1) {
+        return false;
+    }
+    const nextLesson = roadmap[activeLessonIndex + 1];
+    if (nextLesson.completed || !hasCompletedLessonToday) {
+        return true;
+    }
+    return false;
+  }, [roadmap, activeLessonIndex, hasCompletedLessonToday]);
+
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
@@ -127,7 +138,7 @@ const App: React.FC = () => {
   }
   
   const handleNextLesson = () => {
-    if (!roadmap || activeLessonIndex === -1 || activeLessonIndex >= roadmap.length - 1) return;
+    if (!isNextLessonAccessible || !roadmap) return;
     const nextLesson = roadmap[activeLessonIndex + 1];
     setActiveLesson(nextLesson);
   };
@@ -180,7 +191,7 @@ const App: React.FC = () => {
               onNextLesson={handleNextLesson}
               onPreviousLesson={handlePreviousLesson}
               isFirstLesson={activeLessonIndex === 0}
-              isLastLesson={roadmap ? activeLessonIndex === roadmap.length - 1 : true}
+              isLastLesson={!isNextLessonAccessible}
           />
       case View.DASHBOARD:
       default:

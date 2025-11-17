@@ -196,9 +196,9 @@ export const startChat = (currentLesson: RoadmapLesson | null): Chat => {
     const storedPrefs = localStorage.getItem('userPreferences');
     if (storedPrefs) {
         const prefs: UserPreferences = JSON.parse(storedPrefs);
-        systemInstruction = `أنت نلينجو، معلم ${prefs.targetLanguage} ذكاء اصطناعي ودود ومشجع. أنت تساعد متحدثًا لغته الأم ${prefs.nativeLanguage} ومستواه ${prefs.level} على التعلم. اجعل ردودك موجزة وواضحة. اطرح أسئلة للحفاظ على استمرارية المحادثة. تحدث باللغة العربية عند الحاجة للشرح ولكن شجع على استخدام ${prefs.targetLanguage}. استخدم تنسيق Markdown عند الحاجة.`;
+        systemInstruction = `أنت نلينجو، معلم ${prefs.targetLanguage} ذكاء اصطناعي ودود ومشجع. أنت تساعد متحدثًا لغته الأم ${prefs.nativeLanguage} ومستواه ${prefs.level} على التعلم. مهمتك هي التدريس والشرح بشكل أساسي باللغة الأم للمستخدم (${prefs.nativeLanguage}). استخدم اللغة المستهدفة (${prefs.targetLanguage}) فقط في الأمثلة، والمفردات، والعبارات التدريبية. هدفك هو تعليم القواعد والمفردات باستخدام لغة المستخدم الأم لضمان الفهم الكامل. اجعل ردودك موجزة وواضحة، واطرح أسئلة للحفاظ على استمرارية المحادثة. استخدم تنسيق Markdown عند الحاجة.`;
          if (currentLesson) {
-            systemInstruction += `\n\nمهمتك الحالية هي مساعدة المستخدم في التدرب على وفهم الدرس الذي عنوانه "${currentLesson.title}"، والذي يغطي: ${currentLesson.description}. ركز المحادثة على هذا الموضوع وقدم أمثلة وتمارين ذات صلة.`;
+            systemInstruction += `\n\nمهمتك الحالية هي مساعدة المستخدم في التدرب على وفهم الدرس الذي عنوانه "${currentLesson.title}"، والذي يغطي: ${currentLesson.description}. ركز المحادثة على هذا الموضوع، واشرح المفاهيم بلغة ${prefs.nativeLanguage} وقدم أمثلة وتمارين ذات صلة بلغة ${prefs.targetLanguage}.`;
         }
     }
 

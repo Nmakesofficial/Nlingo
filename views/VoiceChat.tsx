@@ -124,9 +124,9 @@ const VoiceChat: React.FC<VoiceChatProps> = ({ onBack, currentLesson, preference
         inputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
         outputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
 
-        let systemInstruction = `أنت نلينجو، معلم ${preferences.targetLanguage} صوتي ودود. أنت تتحدث مع شخص لغته الأم ${preferences.nativeLanguage} ومستواه ${preferences.level}. اجعل ردودك الصوتية قصيرة وواضحة. اطرح أسئلة لتشجيع المحادثة. اشرح بالعربية عند الضرورة ولكن شجع على استخدام ${preferences.targetLanguage}.`;
+        let systemInstruction = `أنت نلينجو، معلم ${preferences.targetLanguage} صوتي ودود. أنت تتحدث مع شخص لغته الأم ${preferences.nativeLanguage} ومستواه ${preferences.level}. مهمتك هي التدريس والشرح بشكل أساسي باللغة الأم للمستخدم (${preferences.nativeLanguage}). استخدم اللغة المستهدفة (${preferences.targetLanguage}) فقط في الأمثلة، والمفردات، والعبارات التدريبية. هدفك هو تعليم القواعد والمفردات باستخدام لغة المستخدم الأم لضمان الفهم الكامل. اجعل ردودك الصوتية قصيرة وواضحة، واطرح أسئلة لتشجيع المحادثة.`;
         if (currentLesson) {
-             systemInstruction += `\n\nركز محادثة اليوم على هذا الدرس: "${currentLesson.title}" (${currentLesson.description}).`;
+             systemInstruction += `\n\nركز محادثة اليوم على هذا الدرس: "${currentLesson.title}" (${currentLesson.description}). اشرح محتوى الدرس بلغة ${preferences.nativeLanguage} وقدم أمثلة وتمارين بلغة ${preferences.targetLanguage}.`;
         }
         
         sessionPromiseRef.current = ai.live.connect({

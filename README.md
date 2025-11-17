@@ -1,20 +1,41 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🧠 Nlingo — AI Language Teacher  
+### Created by **Nmakes**
 
-# Run and deploy your AI Studio app
+Nlingo is a smart, modern AI-powered language tutor designed to help learners improve step-by-step with a clear roadmap, interactive lessons, and personalized guidance.  
+It adapts to your level, corrects your mistakes, and teaches you grammar, vocabulary, speaking, and writing — all in one place.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1tWQYUNAd6M3yEZGs1PrDGdS69bxTvHqH
+## ✨ Features
 
-## Run Locally
+### 📚 Structured Learning Roadmap  
+Nlingo guides you from beginner to advanced with a clear, organized learning path.
 
-**Prerequisites:**  Node.js
+### 🎤 Voice Chat  
+Practice speaking with real-time AI conversation and pronunciation help.
 
+### 💬 Text Chat  
+Improve grammar, writing, and vocabulary through interactive text conversations.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 📝 Quizzes & Challenges  
+Fun short quizzes to test your progress and reinforce learning.
+
+### 🗺️ Roadmap View  
+Track your lessons, completed topics, and what’s next.
+
+---
+
+## 🚀 Why Nlingo?
+- Learns your style and adapts lessons to your level  
+- Helps you improve naturally through conversation  
+- Perfect for self-study and daily practice  
+- Fast, simple, and always available
+
+---
+
+## 👨‍💻 Creator
+**Nmakes** — building intelligent tools to make language learning easier, faster, and more enjoyable.
+
+---
+
+Made with ❤️ for all language learners.
